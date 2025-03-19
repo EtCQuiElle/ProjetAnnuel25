@@ -470,6 +470,59 @@ h1 {
 
 
 /* styles pour livres avec la modal  */
+/* ...existing code... */
+
+
+a.book {
+    text-decoration: none;
+    color: inherit; /* Utilise la couleur du texte par défaut */
+}
+/* ...existing code... */
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-overlay:target {
+    display: block;
+}
+
+.popup {
+
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ajuste la largeur de la modal à 80% de son parent */
+    max-width: 1000px; /* Largeur maximale de la modal */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
 
 .modal {
     display: none;
@@ -963,11 +1016,13 @@ textarea {
 
 /* Livre  */
 /* Conteneur principal */
+
 .book-container {
+    background-color: red;
     display: flex;
     align-items: stretch; /* Étend les éléments enfants à la même hauteur */
     justify-content: center;
-    padding: 20px;
+    padding: 200px;
     width: calc(100% - 40px);
     margin: 40px auto 20px auto;
     background-color: #fff;

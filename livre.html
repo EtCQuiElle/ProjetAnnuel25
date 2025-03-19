@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon_Profil</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-
-<!-- header -->
+    <!-- header -->
     <div class="top-bar">
         <div class="logo">
             <a href="Accueil.html">
@@ -37,112 +35,187 @@
                 </a>
             </div>
 
-    <!-- Les notifications et déconnexion -->
-    <div class="deconnexion">
-        <a href="#notificationModal" class="notification-box">
-            Notifications
-        </a>
-        <a href="Admin_ou_lecteur.html" class="deconnecte">Déconnexion</a>
-    </div>
-</div>
-
-<!-- Modal Notifications -->
-<div id="notificationModal" class="modal-notification">
-    <div class="modal-notification-content">
-        <a href="#" class="close">&times;</a>
-        <p>Voici les notifications</p>
-    </div>
-</div>
+            <!-- Les notifications et déconnexion -->
+            <div class="deconnexion">
+                <a href="#notificationModal" class="notification-box">
+                    Notifications
+                </a>
+                <a href="Admin_ou_lecteur.html" class="deconnecte">Déconnexion</a>
+            </div>
         </div>
+
+        <!-- Modal Notifications -->
+        <div id="notificationModal" class="modal-notification">
+            <div class="modal-notification-content">
+                <a href="#" class="close">&times;</a>
+                <p>Voici les notifications</p>
+            </div>
+        </div>
+    </div>
     <div class="categories">
         <a href="Accueil.html">Accueil</a>
-        <a href="blog.html" >Blog</a>
-        <a href="livre.html"class="active" >Livre</a>
-        <a href="rachats_de_livres.html" >Rachats de livres</a>
+        <a href="blog.html">Blog</a>
+        <a href="livre.html" class="active">Livre</a>
+        <a href="rachats_de_livres.html">Rachats de livres</a>
         <a href="messagerie.html">Messagerie</a>
     </div>
-</body>
 
-
-<body>
-    <header>
-        <!-- <h1>Catalogue de Livres</h1> -->
-        <nav>
-            <ul>
-                <li><a href="#dates-sortie">Dates de sortie</a></li>
-                <li><a href="#livres-sponsorises">Livres Sponsorisés</a></li>
-                <li><a href="#listes-livres">Les Listes de Livres</a></li>
-                <li><a href="#prix-litteraires">Prix littéraires</a></li>
-                <li><a href="#meilleures-ventes">Meilleures ventes</a></li>
-                <li><a href="#top-auteurs">Top Auteurs</a></li>
-            </ul>
-        </nav>
-    </header>
     <main>
         <!-- Dates de sortie -->
         <section id="dates-sortie" class="category">
             <h2>Dates de sortie</h2>
             <div class="book-row">
-                <div class="book">Titre : "L'Héritage"<br><span>Auteur : Christopher Paolini</span></div>
-                <div class="book">Titre : "La Mémoire de Babel"<br><span>Auteur : Christelle Dabos</span></div>
-                <div class="book">Titre : "Les Racines du Chaos"<br><span>Auteur : Samantha Shannon</span></div>
-                <div class="book">Titre : "Le Feu de la Sor'cière"<br><span>Auteur : James Clemens</span></div>
-                <div class="book">Titre : "Hunger Games : La Ballade du serpent et de l'oiseau chanteur"<br><span>Auteur : Suzanne Collins</span></div>
-                <div class="book">Titre : "Le Paris des Merveilles"<br><span>Auteur : Pierre Pevel</span></div>
-                <div class="book">Titre : "Dune : Les Origines"<br><span>Auteur : Brian Herbert</span></div>
-                <div class="book">Titre : "La Chanson du Loup"<br><span>Auteur : TJ Klune</span></div>
-                <div class="book">Titre : "Les Brumes de Cendrelune"<br><span>Auteur : Georgia Caldera</span></div>
-                <div class="book">Titre : "La Quête d'Ewilan"<br><span>Auteur : Pierre Bottero</span></div>
+                <a href="#bookPopup" class="book">
+                    Titre : "L'Héritage"<br><span>Auteur : Christopher Paolini</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "La Mémoire de Babel"<br><span>Auteur : Christelle Dabos</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Les Racines du Chaos"<br><span>Auteur : Samantha Shannon</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Le Feu de la Sor'cière"<br><span>Auteur : James Clemens</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Hunger Games : La Ballade du serpent et de l'oiseau chanteur"<br><span>Auteur : Suzanne Collins</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Le Paris des Merveilles"<br><span>Auteur : Pierre Pevel</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Dune : Les Origines"<br><span>Auteur : Brian Herbert</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "La Chanson du Loup"<br><span>Auteur : TJ Klune</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Les Brumes de Cendrelune"<br><span>Auteur : Georgia Caldera</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "La Quête d'Ewilan"<br><span>Auteur : Pierre Bottero</span>
+                </a>
             </div>
         </section>
-
 
         <!-- Livres Sponsorisés -->
         <section id="livres-sponsorises" class="category">
             <h2>Livres Sponsorisés</h2>
             <div class="book-row">
-                <div class="book">Titre : "Le Petit Prince"<br><span>Auteur : Antoine de Saint-Exupéry</span></div>
-                <div class="book">Titre : "Harry Potter à l'école des sorciers"<br><span>Auteur : J.K. Rowling</span></div>
-                <div class="book">Titre : "Game of Thrones"<br><span>Auteur : George R.R. Martin</span></div>
-                <div class="book">Titre : "Le Seigneur des Anneaux"<br><span>Auteur : J.R.R. Tolkien</span></div>
-                <div class="book">Titre : "Les Misérables"<br><span>Auteur : Victor Hugo</span></div>
-                <div class="book">Titre : "L'Alchimiste"<br><span>Auteur : Paulo Coelho</span></div>
-                <div class="book">Titre : "Le Comte de Monte-Cristo"<br><span>Auteur : Alexandre Dumas</span></div>
-                <div class="book">Titre : "1984"<br><span>Auteur : George Orwell</span></div>
-                <div class="book">Titre : "Animal Farm"<br><span>Auteur : George Orwell</span></div>
-                <div class="book">Titre : "Cyrano de Bergerac"<br><span>Auteur : Edmond Rostand</span></div>
+                <a href="#bookPopup" class="book">
+                    Titre : "Le Petit Prince"<br><span>Auteur : Antoine de Saint-Exupéry</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Harry Potter à l'école des sorciers"<br><span>Auteur : J.K. Rowling</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Game of Thrones"<br><span>Auteur : George R.R. Martin</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Le Seigneur des Anneaux"<br><span>Auteur : J.R.R. Tolkien</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Les Misérables"<br><span>Auteur : Victor Hugo</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "L'Alchimiste"<br><span>Auteur : Paulo Coelho</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Le Comte de Monte-Cristo"<br><span>Auteur : Alexandre Dumas</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "1984"<br><span>Auteur : George Orwell</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Animal Farm"<br><span>Auteur : George Orwell</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Cyrano de Bergerac"<br><span>Auteur : Edmond Rostand</span>
+                </a>
             </div>
         </section>
-
 
         <!-- Les Listes de Livres -->
         <section id="listes-livres" class="category">
             <h2>Les Listes de Livres</h2>
             <div class="book-row">
-                <div class="book">Titre : "Éducation Européenne"<br><span>Auteur : Romain Gary</span></div>
-                <div class="book">Titre : "La Peste"<br><span>Auteur : Albert Camus</span></div>
-                <div class="book">Titre : "Le Rouge et le Noir"<br><span>Auteur : Stendhal</span></div>
-                <div class="book">Titre : "Bel-Ami"<br><span>Auteur : Guy de Maupassant</span></div>
-                <div class="book">Titre : "Madame Bovary"<br><span>Auteur : Gustave Flaubert</span></div>
-                <div class="book">Titre : "Les Fleurs du Mal"<br><span>Auteur : Charles Baudelaire</span></div>
-                <div class="book">Titre : "Germinal"<br><span>Auteur : Émile Zola</span></div>
-                <div class="book">Titre : "La Chartreuse de Parme"<br><span>Auteur : Stendhal</span></div>
-                <div class="book">Titre : "Les Trois Mousquetaires"<br><span>Auteur : Alexandre Dumas</span></div>
-                <div class="book">Titre : "L'Assommoir"<br><span>Auteur : Émile Zola</span></div>
+                <a href="#bookPopup" class="book">
+                    Titre : "Éducation Européenne"<br><span>Auteur : Romain Gary</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "La Peste"<br><span>Auteur : Albert Camus</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Le Rouge et le Noir"<br><span>Auteur : Stendhal</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Bel-Ami"<br><span>Auteur : Guy de Maupassant</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Madame Bovary"<br><span>Auteur : Gustave Flaubert</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Les Fleurs du Mal"<br><span>Auteur : Charles Baudelaire</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Germinal"<br><span>Auteur : Émile Zola</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "La Chartreuse de Parme"<br><span>Auteur : Stendhal</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "Les Trois Mousquetaires"<br><span>Auteur : Alexandre Dumas</span>
+                </a>
+                <a href="#bookPopup" class="book">
+                    Titre : "L'Assommoir"<br><span>Auteur : Émile Zola</span>
+                </a>
             </div>
         </section>
-
 
         <!-- Ajout d'autres catégories -->
         <!-- Exemples : Prix littéraires, Meilleures ventes, Top Auteurs -->
     </main>
 
+    <!-- Pop-up d'affichage du livre -->
+    <div id="bookPopup" class="popup-overlay">
+        <div class="popup">
+            <a href="#" class="close-button">&times;</a>
+            <div class="book-container">
+                <!-- Image du livre -->
+                <img src="Icon\image_livre.png" alt="Image du livre" class="book-image">
+                <!-- Détails du livre -->
+                <div class="book-details">
+                    <h1 class="book-title">Titre du Livre</h1>
+                    <p class="book-author"><strong>Auteur :</strong> Nom de l'auteur</p>
+                    <p class="book-genre"><strong>Genre :</strong> Fiction, Aventure</p>
+                    <!-- Boîte du résumé -->
+                    <div class="book-summary">
+                        <h3>Résumé :</h3>
+                        <p>
+                            Exemple de résumé : Lorsque Skyler fait sa rentrée sur le mythique campus d'Oxford, elle aspire à débuter une nouvelle vie pleine de promesses loin de sa famille menaçante. Guidée par sa soif de découvertes, elle ne tarde pas à se rendre compte que le campus cache bien plus de secrets qu'il n'y paraît, et qu'il n'est pas bon de chercher à les percer.
+                        </p>
+                    </div>
+                    <!-- Boîte de date de sortie -->
+                    <div class="release-box">
+                        <div class="release-header">Date de sortie</div>
+                        <div class="release-content">
+                            <div class="release-info">
+                                <p><strong>Sortie récente</strong></p>
+                                <p>"The Royal Thorns, Tome 1 : Insomnia"</p>
+                            </div>
+                            <div class="release-calendar">
+                                <div class="calendar-icon">
+                                    <div class="calendar-header">15</div>
+                                    <div class="calendar-footer">Janvier</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bouton d'achat -->
+                    <label for="popupToggle" class="buy-button">Acheter ce livre</label>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-
-
-
-
-
-
-
