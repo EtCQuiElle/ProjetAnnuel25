@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon_Profil</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- header -->
+    <div class="top-bar">
+        <div class="logo">
+            <a href="Accueil.html">
+                <img src="C:\Info\Projet annuel\Icon\logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher...">
+        </div>
+        <div class="icons-header">
+            <div class="icons">
+                <!-- Les coups de coeurs  -->
+                <a href="coup_de_coeur.html">
+                    <img src="C:\Info\Projet annuel\Icon\coeur.png" alt="Coup_de_Coeur">
+                </a>
+
+                <!-- le panier  -->
+                <a href="panier.html">
+                    <img src="C:\Info\Projet annuel\Icon\cart.png" alt="Panier">
+                </a>
+
+                <!-- compte client -->
+                <a href="acces_client.html">
+                    <img src="C:\Info\Projet annuel\Icon\profil_pictures.png" alt="Profil_pictures">
+                </a>
+            </div>
+
+    <!-- Les notifications et déconnexion -->
+    <div class="deconnexion">
+        <a href="#notificationModal" class="notification-box">
+            Notifications
+        </a>
+        <a href="Admin_ou_lecteur.html" class="deconnecte">Déconnexion</a>
+    </div>
+</div>
+
+<!-- Modal Notifications -->
+<div id="notificationModal" class="modal-notification">
+    <div class="modal-notification-content">
+        <a href="#" class="close">&times;</a>
+        <p>Voici les notifications</p>
+    </div>
+</div>
+        </div>
+    <div class="categories">
+        <a href="Accueil.html">Accueil</a>
+        <a href="blog.html" >Blog</a>
+        <a href="livre.html"class="active" >Livre</a>
+        <a href="rachats_de_livres.html" >Rachats de livres</a>
+        <a href="messagerie.html">Messagerie</a>
+    </div>
+</body>
+
+<!-- header -->
+
+<div class="book-container">
+    <!-- Image du livre -->
+    <img src="C:\Users\Maille Samuel\OneDrive\Bureau\l3 poitiers cours\projet annuelle\image_livre.png" alt="Image du livre" class="book-image">
+
+    <!-- Détails du livre -->
+    <div class="book-details">
+        <h1 class="book-title">Titre du Livre</h1>
+        <p class="book-author"><strong>Auteur :</strong> Nom de l'auteur</p>
+        <p class="book-genre"><strong>Genre :</strong> Fiction, Aventure</p>
+
+        <!-- Boîte du résumé -->
+        <div class="book-summary">
+            <h3>Résumé :</h3>
+            <p>
+                Exemple de résumé : Lorsque Skyler fait sa rentrée sur le mythique campus d'Oxford, elle aspire à débuter une nouvelle vie pleine de promesses loin de sa famille menaçante. Guidée par sa soif de découvertes, elle ne tarde pas à se rendre compte que le campus cache bien plus de secrets qu'il n'y paraît, et qu'il n'est pas bon de chercher à les percer.
+            </p>
+        </div>
+
+        <!-- Boîte de date de sortie -->
+        <div class="release-box">
+            <div class="release-header">Date de sortie</div>
+            <div class="release-content">
+                <div class="release-info">
+                    <p><strong>Sortie récente</strong></p>
+                    <p>"The Royal Thorns, Tome 1 : Insomnia"</p>
+                </div>
+                <div class="release-calendar">
+                    <div class="calendar-icon">
+                        <div class="calendar-header">15</div>
+                        <div class="calendar-footer">Janvier</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bouton d'achat -->
+        <label for="popupToggle" class="buy-button">Acheter ce livre</label>
+    </div>
+</div>
+
+<!-- Section publicité -->
+<div class="advertisement-box">
+    <img src="chemin_vers_votre_image_publicitaire.png" alt="Publicité" class="advertisement-image">
+</div>
+
+<!-- Pop-up d'achat -->
+<input type="checkbox" id="popupToggle" class="popup-toggle">
+<div class="popup-overlay">
+    <div class="popup">
+        <h2>Où acheter ce livre ?</h2>
+        <ul>
+            <li><a href="#" target="_blank">Site A - 15,99€</a></li>
+            <li><a href="#" target="_blank">Site B - 14,99€</a></li>
+            <li><a href="#" target="_blank">Site C - 16,49€</a></li>
+        </ul>
+        <label for="popupToggle" class="close-button">Fermer</label>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon_Profil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin">
+        <div class="top-bar">
+            <div class="logo">
+                <a href="accueil_admin.html">
+                    <img src="C:\Info\Projet annuel\Icon\logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher...">
+            </div>
+            <div class="icons-header-admin">
+                <div class="icons">
+                    <div class="deconnexion">
+                        <a href="Admin_ou_lecteur.html" class="deconnecte">Déconnexion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="categories">
+            <a href="Accueil_admin.html" >Accueil</a>
+            <a href="Stock_admin.html"class="active">Stock</a>
+            <a href="nouveau_livre_admin.html">Nouveaux livres</a>
+            <a href="rachat_de_livre_admin.html">Rachats de livres</a>
+            <a href="vitrine_admin.html">Vitrine</a>
+        </div>
+
+<div class="container">
+    <div class="box">
+        <div class="header-livres-stock">
+        <h2>Livres</h2>
+
+        <div class="filter-icon">
+            <img src="C:\Info\Projet annuel\Icon\Filter-icon.png" width=25px alt="Filter" >
+        </div>
+    </div>
+
+        <input type="text" placeholder="Rechercher un livre..." class="search-bar-books-stock-admin">
+        <a href="#bookModal" class="book-info">
+            <img src="C:\Info\Projet annuel\Icon\book.png" alt="Image du livre" class="book-image">
+            <div class="book-details">
+                <p>Titre : Exemple de Titre</p>
+                <p>Auteur : Exemple d'Auteur</p>
+            </div>
+            <span class="stock">Stock : X </span>
+        </a>
+        <a href="#bookModal" class="book-info">
+            <img src="C:\Info\Projet annuel\Icon\book.png" alt="Image du livre" class="book-image">
+            <div class="book-details">
+                <p>Titre : Exemple de Titre</p>
+                <p>Auteur : Exemple d'Auteur</p>
+            </div>
+            <span class="stock">Stock : X </span>
+        </a>
+    </div>
+    <div class="box clickable" onclick="location.href='ajouter_livre.html'">
+        <h2>Ajouter un livre au stock</h2>
+    </div>
+    <div class="box">
+        <h2>Suivi des commandes aux fournisseurs</h2>
+        <p>Contenu du suivi des commandes...</p>
+    </div>
+</div>
+
+<div id="bookModal" class="modal">
+    <div class="modal-content">
+        <a href="#" class="close">&times;</a>
+        <div class="modal-body">
+            <img src="C:\Info\Projet annuel\Icon\book.png" alt="Image du livre" class="modal-book-image">
+            <div class="modal-details">
+                <h2>Exemple de Titre</h2>
+                <p>Auteur : Exemple d'Auteur</p>
+                <p>Nombre d'exemplaires vendus dans l'année : X</p>
+                <p>Nombre d'exemplaires en stock : X</p>
+                <p>Résumé : Harry Potter, un jeune orphelin, est élevé par son oncle et sa tante qui le détestent. Alors qu'il était haut comme trois pommes, ces derniers lui ont raconté que ses parents étaient morts dans un accident de voiture. Le jour de son onzième anniversaire, Harry reçoit la visite inattendue d'un homme gigantesque se nommant Rubeus Hagrid, et celui-ci lui révèle qu'il est en fait le fils de deux puissants magiciens et qu'il possède lui aussi d'extraordinaires pouvoirs.</p>
+            </div>
+        </div>
+    </div>
+</div>
