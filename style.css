@@ -1,3 +1,67 @@
+/* style pour panier */
+/* ...existing code... */
+/* ...existing code... */
+
+.icons a.active_icon {
+    background-color: #f0e68c; /* Couleur de surbrillance pour la page active */
+    border-radius: 10px; /* Ajoute des bords arrondis */
+    padding : 0 px;
+}
+
+/* ...existing code... */
+
+.cart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-size: 18px;
+    margin: 0;
+}
+
+.cart-item-price {
+    font-size: 16px;
+    color: #888;
+}
+
+/* ...existing code... */
+
 /* style pour rachat de livre admin */
 body {
     font-family: Arial, sans-serif;
