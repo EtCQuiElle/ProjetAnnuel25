@@ -11,7 +11,6 @@ $password = '22404405';
 try {
     $pdo = new PDO($dbname, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo 'Connexion réussie';
 } catch (PDOException $e) {
     echo 'Connexion échouée : ' . $e->getMessage();
 }

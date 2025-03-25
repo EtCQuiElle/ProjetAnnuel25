@@ -3,7 +3,7 @@ include('pdo.php');
 // Récupération des livres dans la base de données
 // Utilisation de la connexion PDO déjà établie
 try {
-    $stmt = $pdo->prepare("SELECT * FROM livre ORDER BY `id livre`");
+    $stmt = $pdo->prepare("SELECT genre, titre, `prenom auteur`, `nom auteur` FROM livre ORDER BY genre, titre");
     $stmt->execute();
     $livres = $stmt->fetchAll();
     
@@ -11,6 +11,18 @@ try {
 } catch (PDOException $e) {
     echo "Erreur lors de la récupération des livres : " . $e->getMessage();
 }
+// Récupération des genres distincts
+$stmtGenres = $pdo->prepare("SELECT DISTINCT genre FROM livre ORDER BY genre");
+$stmtGenres->execute();
+$genres = $stmtGenres->fetchAll(PDO::FETCH_COLUMN);
+
+
+// Organiser les livres par genre
+$livresParGenre = [];
+foreach ($livres as $livre) {
+    $livresParGenre[$livre['genre']][] = $livre;
+}
+
 ?>
 
 
@@ -91,79 +103,37 @@ try {
         <h1>Catalogue de Livres</h1>
         <nav>
             <ul>
-                <li><a href="#dates-sortie">Dates de sortie</a></li>
-                <li><a href="#livres-sponsorises">Livres Sponsorisés</a></li>
-                <li><a href="#listes-livres">Les Listes de Livres</a></li>
-                <li><a href="#prix-litteraires">Prix littéraires</a></li>
-                <li><a href="#meilleures-ventes">Meilleures ventes</a></li>
-                <li><a href="#top-auteurs">Top Auteurs</a></li>
+            <?php foreach ($genres as $genre) : ?>
+            <li><a href="#<?php echo strtolower(str_replace(' ', '-', $genre)); ?>">
+            <?php echo htmlspecialchars($genre); ?>
+            </a></li>
+            <?php endforeach; ?>
             </ul>
         </nav>
     </header>
     <main>
-        <!-- Dates de sortie -->
-<section id="dates-sortie" class="category">
-    <h2>Dates de sortie</h2>
-    <div class="book-row">
-        <?php 
-        // Affichage des livres
-        foreach ($livres as $livre) {
-        ?>
-            <div class="book">
-                <div class="book-content">
-                    <div class="book-title">
-                        Titre : "<?php echo htmlspecialchars($livre['titre']); ?>"
-                    </div>
-                    <div class="book-author">
-                        Auteur : <?php echo htmlspecialchars($livre['prenom auteur']) . ' ' . htmlspecialchars($livre['nom auteur']); ?>
-                    </div>
-                </div>
-            </div>
-        <?php
-        }
-        ?>
-    </div>
-</section>
-
-        <!-- Livres Sponsorisés -->
-        <section id="livres-sponsorises" class="category">
-            <h2>Livres Sponsorisés</h2>
+    <?php foreach ($livresParGenre as $genre => $livres) : ?>
+        <section id="<?php echo strtolower(str_replace(' ', '-', $genre)); ?>" class="category">
+            <h2><?php echo htmlspecialchars($genre); ?></h2>
             <div class="book-row">
-                <div class="book">Titre : "Le Petit Prince"<br><span>Auteur : Antoine de Saint-Exupéry</span></div>
-                <div class="book">Titre : "Harry Potter à l'école des sorciers"<br><span>Auteur : J.K. Rowling</span></div>
-                <div class="book">Titre : "Game of Thrones"<br><span>Auteur : George R.R. Martin</span></div>
-                <div class="book">Titre : "Le Seigneur des Anneaux"<br><span>Auteur : J.R.R. Tolkien</span></div>
-                <div class="book">Titre : "Les Misérables"<br><span>Auteur : Victor Hugo</span></div>
-                <div class="book">Titre : "L'Alchimiste"<br><span>Auteur : Paulo Coelho</span></div>
-                <div class="book">Titre : "Le Comte de Monte-Cristo"<br><span>Auteur : Alexandre Dumas</span></div>
-                <div class="book">Titre : "1984"<br><span>Auteur : George Orwell</span></div>
-                <div class="book">Titre : "Animal Farm"<br><span>Auteur : George Orwell</span></div>
-                <div class="book">Titre : "Cyrano de Bergerac"<br><span>Auteur : Edmond Rostand</span></div>
+                <?php foreach ($livres as $livre) : ?>
+                    <div class="book">
+                        <div class="book-content">
+                            <div class="book-title">
+                                Titre : "<?php echo htmlspecialchars($livre['titre']); ?>"
+                            </div>
+                            <div class="book-author">
+                                Auteur : <?php echo htmlspecialchars($livre['prenom auteur']) . ' ' . htmlspecialchars($livre['nom auteur']); ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </section>
-
-        <!-- Les Listes de Livres -->
-        <section id="listes-livres" class="category">
-            <h2>Les Listes de Livres</h2>
-            <div class="book-row">
-                <div class="book">Titre : "Éducation Européenne"<br><span>Auteur : Romain Gary</span></div>
-                <div class="book">Titre : "La Peste"<br><span>Auteur : Albert Camus</span></div>
-                <div class="book">Titre : "Le Rouge et le Noir"<br><span>Auteur : Stendhal</span></div>
-                <div class="book">Titre : "Bel-Ami"<br><span>Auteur : Guy de Maupassant</span></div>
-                <div class="book">Titre : "Madame Bovary"<br><span>Auteur : Gustave Flaubert</span></div>
-                <div class="book">Titre : "Les Fleurs du Mal"<br><span>Auteur : Charles Baudelaire</span></div>
-                <div class="book">Titre : "Germinal"<br><span>Auteur : Émile Zola</span></div>
-                <div class="book">Titre : "La Chartreuse de Parme"<br><span>Auteur : Stendhal</span></div>
-                <div class="book">Titre : "Les Trois Mousquetaires"<br><span>Auteur : Alexandre Dumas</span></div>
-                <div class="book">Titre : "L'Assommoir"<br><span>Auteur : Émile Zola</span></div>
-            </div>
-        </section>
-
-        <!-- Ajout d'autres catégories -->
-        <!-- Exemples : Prix littéraires, Meilleures ventes, Top Auteurs -->
+    <?php endforeach; ?>
     </main>
     <footer>
-        <p>&copy; 2025 Catalogue de Livres. Tous droits réservés.</p>
+        <p>&copy; 2025 Catalogue de Livres. Tous droits réservés. echo "Bonjour";</p>
     </footer>
 </body>
 </html>
