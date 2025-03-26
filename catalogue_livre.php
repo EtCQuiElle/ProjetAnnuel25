@@ -96,7 +96,7 @@ foreach ($livres as $livre) {
                 <h2><?= htmlspecialchars($genre) ?></h2>
                 <div class="book-row">
                     <?php foreach ($livres as $livre) : ?>
-                        <a href="description_livre_test.php?id=<?= htmlspecialchars($livre['id livre']) ?>"> 
+                        <a href="description_livre.php?id=<?= htmlspecialchars($livre['id livre']) ?>"> 
                             <div class="book">
                                 <div class="book-image-container">
                                     <?php if (!empty($livre['img'])) : ?>
