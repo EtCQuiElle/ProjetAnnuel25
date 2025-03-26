@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($erreurs)) {
         try {
             // Préparation de la requête d'insertion
-            $stmt = $pdo->prepare("INSERT INTO utilisateurs 
+            $stmt = $pdo->prepare("INSERT INTO utilisateur 
                 (nom, prenom, email, date_naissance, type, sexe, mdp) 
                 VALUES 
                 (:nom, :prenom, :email, :date_naissance, :type, :sexe, :mdp)");
