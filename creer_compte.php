@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':prenom', $prenom);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':date_naissance', $date_naissance);
-            $stmt->bindValue(':type', 'client');
+            $stmt->bindValue(':type', 'utilisateur');
             $stmt->bindParam(':sexe', $sexe_code);
             $stmt->bindParam(':mdp', $mdp);
             

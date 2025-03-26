@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             <h2>Se connecter en tant que :</h2>
             <div class="user-type-selection">
-                <button type="submit" class="popup-button" name="user_type" value="lecteur">Lecteur</button>
+                <button type="submit" class="popup-button" name="user_type" value="utilisateur">Lecteur</button>
                 <button type="submit" class="popup-button" name="user_type" value="admin">Administrateur</button>
             </div>
         </form>
