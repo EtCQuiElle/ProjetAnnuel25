@@ -1,0 +1,275 @@
+panier.css
+
+main.panier-main {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    color: #333;
+    animation: fadeIn 0.5s ease-out;
+}
+
+main.panier-main h1 {
+    text-align: center;
+    color: #3a5169;
+    font-size: 2.2rem;
+    margin-bottom: 1.8rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+main.panier-main h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #4a6fa5, #3a5a80);
+}
+
+/* Message d'alerte */
+.alert-message-panier {
+    padding: 1rem 1.5rem;
+    margin: 1.5rem auto;
+    background: #f0f7ff;
+    color: #2c3e50;
+    text-align: center;
+    border-radius: 8px;
+    max-width: 600px;
+    border-left: 4px solid #4a6fa5;
+    box-shadow: 0 2px 10px rgba(74, 111, 165, 0.1);
+    font-size: 0.95rem;
+}
+
+/* Conteneur principal */
+.panier-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 1rem;
+}
+
+/* Panier vide */
+.empty-panier {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+}
+
+.empty-panier::before {
+    content: "📚";
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+/* Liste des articles */
+.panier-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem 0;
+}
+
+/* Article individuel */
+.panier-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #eaeef2;
+    transition: all 0.25s ease;
+}
+
+.panier-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-color: #d6e0ea;
+}
+
+/* Image du livre */
+.panier-item-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.panier-item:hover .panier-item-image {
+    transform: scale(1.03);
+}
+
+/* Détails du livre */
+.panier-item-details {
+    padding-right: 1rem;
+}
+
+.panier-item-name {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+}
+
+.panier-item-price {
+    font-size: 1.05rem;
+    color: #4a6fa5;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.panier-item-id {
+    font-size: 0.85rem;
+    color: #95a5a6;
+    margin-bottom: 0;
+}
+
+/* Bouton supprimer */
+.panier-remove-item {
+    color: #e74c3c;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #f5c6cb;
+    background: #fff;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+}
+
+.panier-remove-item:hover {
+    background: #f8d7da;
+    color: #c0392b;
+}
+
+/* Résumé du panier */
+.panier-summary {
+    padding: 1.8rem;
+    background: #f8fafc;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-top: 2px solid #e9ecef;
+}
+
+.panier-total {
+    text-align: right;
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 1.8rem;
+    font-weight: 600;
+}
+
+.panier-total span {
+    color: #4a6fa5;
+}
+
+/* Actions du panier */
+.panier-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+}
+
+.panier-continue-shopping {
+    padding: 0.9rem 1.5rem;
+    background: white;
+    color: #4a6fa5;
+    border: 1px solid #4a6fa5;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    flex: 1;
+}
+
+.panier-continue-shopping:hover {
+    background: #f0f4f9;
+    transform: translateY(-2px);
+}
+
+.panier-checkout-button {
+    padding: 0.9rem 1.5rem;
+    background: linear-gradient(to right, #4a6fa5, #3a5a80);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    flex: 1;
+    box-shadow: 0 4px 8px rgba(74, 111, 165, 0.2);
+}
+
+.panier-checkout-button:hover {
+    background: linear-gradient(to right, #3a5a80, #2a4a70);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(74, 111, 165, 0.3);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main.panier-main {
+        padding: 1rem 0.5rem;
+    }
+    
+    .panier-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .panier-item-image {
+        width: 100px;
+        height: 150px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .panier-remove-item {
+        align-self: flex-end;
+        margin-top: 1rem;
+    }
+    
+    .panier-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    main.panier-main h1 {
+        font-size: 1.8rem;
+    }
+    
+    .panier-item {
+        padding: 1.2rem;
+    }
+    
+    .panier-item-image {
+        width: 80px;
+        height: 120px;
+    }
+}
