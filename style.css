@@ -1429,39 +1429,4 @@ main h1 {
     color: #95a5a6;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .accueil-client-top-bar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-    
-    .accueil-client-search-bar input {
-        width: 100%;
-    }
-    
-    .accueil-client-categories {
-        flex-wrap: wrap;
-    }
-    
-    .accueil-client-container {
-        grid-template-columns: 1fr;
-        padding: 20px;
-    }
-}
 
-/* Animations */
-@keyframes accueil-client-fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.accueil-client-box {
-    animation: accueil-client-fadeIn 0.5s ease-out forwards;
-}
-
-.sbox:nth-child(1) { animation-delay: 0.1s; }
-.accueil-client-box:nth-child(2) { animation-delay: 0.2s; }
-.accueil-client-box:nth-child(3) { animation-delay: 0.3s; }
-.accueil-client-box:nth-child(4) { animation-delay: 0.4s; }
