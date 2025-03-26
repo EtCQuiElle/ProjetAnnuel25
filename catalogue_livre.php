@@ -2,7 +2,7 @@
 include('pdo.php');
 // Récupération des livres dans la base de données
 try {
-    $stmt = $pdo->prepare("SELECT `id livre`, genre, titre, `prenom auteur`, `nom auteur`, img FROM livre ORDER BY genre, titre");
+    $stmt = $pdo->prepare("SELECT id_livre, genre, titre, `prenom auteur`, `nom auteur`, img FROM livre ORDER BY genre, titre");
     $stmt->execute();
     $livres = $stmt->fetchAll();
     
@@ -35,7 +35,7 @@ foreach ($livres as $livre) {
     <div class="top-bar">
         <div class="logo">
             <a href="Accueil.html">
-                <img src="assets/images/logo.png" alt="logo">
+                <img src="Icon/logo.png" alt="logo">
             </a>
         </div>
         <div class="search-bar">
@@ -44,13 +44,13 @@ foreach ($livres as $livre) {
         <div class="icons-header">
             <div class="icons">
                 <a href="coup_de_coeur.html">
-                    <img src="assets/images/coeur.png" alt="Coup de Coeur">
+                    <img src="Icon/coeur.png" alt="Coup de Coeur">
                 </a>
-                <a href="panier.html">
-                    <img src="assets/images/cart.png" alt="Panier">
+                <a href="panier.php">
+                    <img src="Icon/cart.png" alt="Panier">
                 </a>
                 <a href="acces_client.html">
-                    <img src="assets/images/profil_pictures.png" alt="Profil">
+                    <img src="Icon/profil_pictures.png" alt="Profil">
                 </a>
             </div>
             <div class="deconnexion">
@@ -71,7 +71,7 @@ foreach ($livres as $livre) {
     <div class="categories">
         <a href="Accueil.html">Accueil</a>
         <a href="blog.html">Blog</a>
-        <a href="livre.php" class="active">Livre</a>
+        <a href="catalogue_livre.php" class="active">Livre</a>
         <a href="rachats_de_livres.html">Rachats de livres</a>
         <a href="messagerie.html">Messagerie</a>
     </div>
@@ -96,7 +96,7 @@ foreach ($livres as $livre) {
                 <h2><?= htmlspecialchars($genre) ?></h2>
                 <div class="book-row">
                     <?php foreach ($livres as $livre) : ?>
-                        <a href="description_livre.php?id=<?= htmlspecialchars($livre['id livre']) ?>"> 
+                        <a href="description_livre.php?id=<?= htmlspecialchars($livre['id_livre']) ?>"> 
                             <div class="book">
                                 <div class="book-image-container">
                                     <?php if (!empty($livre['img'])) : ?>
