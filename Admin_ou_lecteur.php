@@ -2,18 +2,23 @@
 session_start();
 include('pdo.php');
 
+// Activer l'affichage des erreurs
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
     $user_type = $_POST['user_type']; // 'lecteur' ou 'admin'
 
-    // Requête pour récupérer le mot de passe en clair
-    $stmt = $pdo->prepare(query: "COUNT* FROM utilisateurs WHERE email = ? AND type = ?");
-    $stmt->execute([$email, $user_type]);
-    $dbPassword = $stmt->fetchColumn();
+    // Requête pour compter le nombre d'utilisateurs correspondant
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM utilisateur WHERE email = ? AND mdp = ? AND type = ?");
+    $stmt->execute([$email, $password, $user_type]);
+    $userCount = $stmt->fetchColumn();
 
     // Vérification des identifiants
-    if ($dbPassword && $password === $dbPassword) {
+    if ($userCount == 1) {
         $_SESSION['logged_in'] = true;
         $_SESSION['user_type'] = $user_type;
 
