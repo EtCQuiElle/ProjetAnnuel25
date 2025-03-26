@@ -10,8 +10,8 @@ error_reporting(E_ALL);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
-    $user_type = $_POST['user_type']; // 'lecteur' ou 'admin'
-
+    $user_type = isset($_POST['user_type']) ? $_POST['user_type'] : null;
+    
     // Requête pour compter le nombre d'utilisateurs correspondant
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM utilisateur WHERE email = ? AND mdp = ? AND type = ?");
     $stmt->execute([$email, $password, $user_type]);

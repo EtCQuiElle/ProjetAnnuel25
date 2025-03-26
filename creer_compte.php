@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Créer un compte</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="Admin-lecteur-page">
+<body class="admin-lecteur-page">
     <div class="background">
         <img src="Icon\Books_background.jpg" alt="Logo" class="background-logo">
     </div>
