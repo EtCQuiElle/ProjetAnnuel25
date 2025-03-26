@@ -11,7 +11,7 @@ $livreId = $_GET['id'];
 
 try {
     // Récupérer les détails complets du livre
-    $stmt = $pdo->prepare("SELECT * FROM livre WHERE `id livre` = ?");
+    $stmt = $pdo->prepare("SELECT * FROM livre WHERE `id_livre` = ?");
     $stmt->execute([$livreId]);
     $livre = $stmt->fetch();
     
@@ -38,7 +38,7 @@ try {
     <div class="top-bar">
         <div class="logo">
             <a href="Accueil.html">
-                <img src="assets/images/logo.png" alt="logo">
+                <img src="Icon/logo.png" alt="logo">
             </a>
         </div>
         <div class="search-bar">
@@ -47,13 +47,13 @@ try {
         <div class="icons-header">
             <div class="icons">
                 <a href="coup_de_coeur.html">
-                    <img src="assets/images/coeur.png" alt="Coup de Coeur">
+                    <img src="Icon/coeur.png" alt="Coup de Coeur">
                 </a>
-                <a href="panier.html">
-                    <img src="assets/images/cart.png" alt="Panier">
+                <a href="panier.php">
+                    <img src="Icon/cart.png" alt="Panier">
                 </a>
                 <a href="acces_client.html">
-                    <img src="assets/images/profil_pictures.png" alt="Profil">
+                    <img src="Icon/profil_pictures.png" alt="Profil">
                 </a>
             </div>
             <div class="deconnexion">
@@ -74,7 +74,7 @@ try {
     <div class="categories">
         <a href="Accueil.html">Accueil</a>
         <a href="blog.html">Blog</a>
-        <a href="livre.php">Livre</a>
+        <a href="catalogue_livre.php">Livre</a>
         <a href="rachats_de_livres.html">Rachats de livres</a>
         <a href="messagerie.html">Messagerie</a>
     </div>
@@ -108,8 +108,18 @@ try {
                 <p><strong>État:</strong> <?= htmlspecialchars($livre['etat']) ?></p>
                 <p><strong>Note:</strong> <?= htmlspecialchars($livre['note']) ?>/5</p>
             </div>
-            
-            <a href="panier.html" class="buy-button">Ajouter au panier</a>
+        
+            <!-- Modifier le bouton "Ajouter au panier" pour soumettre un formulaire -->
+
+            <form action="panier.php" method="post">
+    <input type="hidden" name="action" value="add">
+    <input type="hidden" name="id_livre" value="<?= $livre['id_livre'] ?>"> <!-- Nom simple -->
+    <input type="hidden" name="titre" value="<?= htmlspecialchars($livre['titre']) ?>">
+    <input type="hidden" name="prix" value="<?= $livre['prix'] ?>">
+    <input type="hidden" name="image" value="<?= htmlspecialchars($imagePath) ?>">
+    <button type="submit" class="buy-button">Ajouter au panier</button>
+            </form>
+
         </div>
     </main>
 
