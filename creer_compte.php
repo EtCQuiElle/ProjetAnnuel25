@@ -1,6 +1,9 @@
 <?php
 // Configuration de la base de données
 include('pdo.php');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // Variables pour stocker les erreurs
 $erreurs = [];
@@ -13,8 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $date_naissance = $_POST['date_naissance'];
     $sexe = $_POST['sexe'];
-    
-    // Validation du nom et prénom
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    // Validation des données
     if (empty($nom) || strlen($nom) < 2) {
         $erreurs[] = "Le nom est invalide.";
     }
@@ -23,29 +28,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erreurs[] = "Le prénom est invalide.";
     }
 
-    // Validation de l'email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $erreurs[] = "L'adresse email est invalide.";
     }
 
-    // Validation de la date de naissance
     $date_actuelle = new DateTime();
     $date_naissance_obj = DateTime::createFromFormat('Y-m-d', $date_naissance);
-    
     if (!$date_naissance_obj || $date_naissance_obj >= $date_actuelle) {
         $erreurs[] = "La date de naissance est invalide.";
     }
 
-    // Vérification des mots de passe
-    if ($_POST['password'] !== $_POST['confirm_password']) {
+    if ($password !== $confirm_password) {
         $erreurs[] = "Les mots de passe ne correspondent pas.";
     }
 
-    // Hachage du mot de passe
-    $mdp = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    
-    // Normalisation du sexe
-    switch($sexe) {
+    switch ($sexe) {
         case 'homme':
             $sexe_code = 'H';
             break;
@@ -56,39 +53,59 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sexe_code = 'A';
     }
 
-    // Vérification s'il y a des erreurs
     if (empty($erreurs)) {
         try {
-            // Préparation de la requête d'insertion
-            $stmt = $pdo->prepare("INSERT INTO utilisateur 
-                (nom, prenom, email, date_naissance, type, sexe, mdp) 
-                VALUES 
-                (:nom, :prenom, :email, :date_naissance, :type, :sexe, :mdp)");
-            
+
+            $stmt_check = $pdo->prepare("SELECT COUNT(*) FROM utilisateur WHERE email = :email");
+            $stmt_check->bindParam(':email', $email);
+            $stmt_check->execute();
+            $email_exists = $stmt_check->fetchColumn();
+    
+            if ($email_exists > 0) {
+                $erreurs[] = "Un compte existe déjà avec cette adresse email.";
+            } else {
+                    // Préparation de la requête d'insertion
+                $stmt = $pdo->prepare("INSERT INTO utilisateur 
+                    (nom, prenom, email, date_naissance, type, sexe, mdp) 
+                    VALUES 
+                    (:nom, :prenom, :email, :date_naissance, :type, :sexe, :mdp)");
+    
+        
+       
+
             // Liaison des paramètres
             $stmt->bindParam(':nom', $nom);
             $stmt->bindParam(':prenom', $prenom);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':date_naissance', $date_naissance);
-            $stmt->bindValue(':type', 'utilisateur');
+            $stmt->bindValue(':type', 'client');
             $stmt->bindParam(':sexe', $sexe_code);
-            $stmt->bindParam(':mdp', $mdp);
-            
+            $stmt->bindParam(':mdp', $confirm_password);
+
+            // Debug : Afficher les valeurs avant exécution
+            var_dump($nom, $prenom, $email, $date_naissance, $sexe_code, $confirm_password);
+
             // Exécution de la requête
-            $stmt->execute();
-            
-            // Redirection vers admin_ou_lecteur.php
+            if ($stmt->execute()) {
+                echo "Inscription réussie !";
+            } else {
+                echo "Erreur lors de l'insertion.";
+            }
+
+            // Redirection après succès
             header('Location: Admin_ou_lecteur.php');
             exit();
-            
-        } catch(PDOException $e) {
-            // Gestion des erreurs d'insertion
-            if ($e->getCode() == '23000') {
-                $erreurs[] = "Un compte existe déjà avec cette adresse email.";
-            } else {
-                $erreurs[] = "Erreur lors de l'inscription : " . $e->getMessage();
-            }
+
+        } 
+    } catch (PDOException $e) {
+            // Ges tion des erreurs SQL
+            echo "Erreur SQL : " . $e->getMessage();
+            echo "Code d'erreur : " . $e->getCode();
+            exit();
         }
+    } else {
+        // Afficher les erreurs de validation
+        var_dump($erreurs);
     }
 }
 ?>
@@ -119,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         ?>
         
-        <form action="Admin_ou_lecteur.php" method="post">
+        <form action="" method="post">
             <div class="form-group">
                 <label for="nom">Nom :</label>
                 <input type="text" id="nom" name="nom" required value="<?php echo isset($nom) ? htmlspecialchars($nom) : ''; ?>">
@@ -161,6 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirm_password').value;
         
+        // <!-- VERIF CONFIRMATION DE MDP -->
         if (password !== confirmPassword) {
             alert('Les mots de passe ne correspondent pas');
             event.preventDefault();

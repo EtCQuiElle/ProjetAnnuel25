@@ -1,6 +1,11 @@
 <?php
 session_start();
 include('pdo.php');
+if ($pdo) {
+    echo "Connexion réussie !";
+} else {
+    echo "Échec de la connexion.";
+}
 
 // Activer l'affichage des erreurs
 ini_set('display_errors', 1);
